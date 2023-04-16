@@ -6,4 +6,32 @@ label {
 section {
   border-style: solid;
   border-radius: 10%;
+  padding:60px;
+  margin:20px 10px;
+  padding-left: auto;
+  padding-right: auto;
+  background-color: white;
+}
+
+iframe {
+  padding-left: auto;
+  padding-right: auto;
+}
+
+.answer {
+  padding-top: 0;
+}
+
+h1,h2 {
+  text-align: center;
+}
+
+button {
+  display: block;
+  padding-left: auto;
+  padding-right: auto;
+}
+
+body {
+  background-color: grey;
 }

@@ -10,8 +10,12 @@
     <h1>PDF question answering </h1>
     <section>
       <article>This is a placeholder for an explanation of what this app can do and how to use it. I will also add a YouTube video of how to generate OpenAI's API</article>
+      <iframe width="300" height="300"
+src="https://www.youtube.com/embed/_vEJ07K0VPs?controls=0">
+      </iframe>
     </section>
     <section>
+      <h2>Form</h2>
       <form method="post" action="{{ url_for('home') }}" enctype="multipart/form-data" onsubmit="alert('Form submitted')">
        <label>Your OpenAI key: <input type="text" required name="apikey"></label>
        <label>Your PDF file: <input type="file" name="file" accept=".pdf" required></label> 
@@ -22,7 +26,7 @@
         <button type="submit">query</button>
       </form>
     </section>
-    <section>
+    <section class="answer">
       <h2>Answer</h2>
       <p>{{ answer }}</p>
     </section>
