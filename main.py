@@ -60,7 +60,7 @@ def home():
   if request.method=="POST":
 
   # Obtain data from the form
-    if 'apikey' in request.form:
+    if ('apikey' in request.form) or ('file' in request.files):
       file = request.files['file']
       api = request.form['apikey']
 

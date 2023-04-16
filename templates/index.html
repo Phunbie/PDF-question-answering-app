@@ -12,7 +12,7 @@
       <article>This is a placeholder for an explanation of what this app can do and how to use it. I will also add a YouTube video of how to generate OpenAI's API</article>
     </section>
     <section>
-      <form method="post" action="{{ url_for('home') }}" enctype="multipart/form-data">
+      <form method="post" action="{{ url_for('home') }}" enctype="multipart/form-data" onsubmit="alert('Form submitted')">
        <label>Your OpenAI key: <input type="text" required name="apikey"></label>
        <label>Your PDF file: <input type="file" name="file" accept=".pdf" required></label> 
         <button type="submit">submit</button>
