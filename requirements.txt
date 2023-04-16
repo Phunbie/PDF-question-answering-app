@@ -1,0 +1,7 @@
+Flask==2.2.2
+langchain
+openai
+PyPDF2
+pydantic
+tiktoken
+faiss-cpu

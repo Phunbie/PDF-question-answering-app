@@ -1,0 +1,9 @@
+label {
+  display: block;
+  padding: 20px 20px;
+}
+
+section {
+  border-style: solid;
+  border-radius: 10%;
+}

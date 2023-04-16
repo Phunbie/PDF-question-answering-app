@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF question answering app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <h1>PDF question answering </h1>
+    <section>
+      <article>This is a placeholder for an explanation of what this app can do and how to use it. I will also add a YouTube video of how to generate OpenAI's API</article>
+    </section>
+    <section>
+      <form method="post" action="{{ url_for('home') }}" enctype="multipart/form-data">
+       <label>Your OpenAI key: <input type="text" required name="apikey"></label>
+       <label>Your PDF file: <input type="file" name="file" accept=".pdf" required></label> 
+        <button type="submit">submit</button>
+      </form>
+      <form method="post" action="{{ url_for('home') }}">
+        <label>Question: <input type="text" name="question"></label>
+        <button type="submit">query</button>
+      </form>
+    </section>
+    <section>
+      <h2>Answer</h2>
+      <p>{{ answer }}</p>
+    </section>
+  </body>
+</html>
