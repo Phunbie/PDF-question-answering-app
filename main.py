@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from PyPDF2 import PdfReader #PdfFileReader
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import ElasticVectorSearch, Pinecone, Weaviate, FAISS
+from langchain.vectorstores import FAISS #ElasticVectorSearch, Pinecone, Weaviate, FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import OpenAI
 import os 
