@@ -4,5 +4,5 @@ langchain
 openai
 PyPDF2
 pydantic
-tiktoken
+tiktoken==0.3.0
 faiss-cpu
