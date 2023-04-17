@@ -18,7 +18,7 @@ iframe {
   padding-right: auto;
 }
 
-.answer {
+.answer, .form {
   padding-top: 0;
 }
 
@@ -28,10 +28,27 @@ h1,h2 {
 
 button {
   display: block;
-  padding-left: auto;
-  padding-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width:100%;
 }
 
+button:hover {
+  background-color: grey;
+}
+
+button:active {
+  width: 90%;
+}
 body {
   background-color: grey;
+}
+
+.file > input {
+  width: 55%;
+}
+
+textarea {
+  margin-top: 20px;
+  width: 100%
 }

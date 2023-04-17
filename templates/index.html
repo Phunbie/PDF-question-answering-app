@@ -14,20 +14,21 @@
 src="https://www.youtube.com/embed/_vEJ07K0VPs?controls=0">
       </iframe>
     </section>
-    <section>
+    <section class="form">
       <h2>Form</h2>
       <form method="post" action="{{ url_for('home') }}" enctype="multipart/form-data" onsubmit="alert('Form submitted')">
        <label>Your OpenAI key: <input type="text" required name="apikey"></label>
-       <label>Your PDF file: <input type="file" name="file" accept=".pdf" required></label> 
+       <label class="file">Your PDF file: <input type="file" name="file" accept=".pdf" required></label> 
         <button type="submit">submit</button>
-      </form>
-      <form method="post" action="{{ url_for('home') }}">
-        <label>Question: <input type="text" name="question"></label>
-        <button type="submit">query</button>
       </form>
     </section>
     <section class="answer">
-      <h2>Answer</h2>
+      <h2>Question and Answer</h2>
+      <form method="post" action="{{ url_for('home') }}">
+        <label>Question: <input type="text" name="question" required></label>
+        <button type="submit">query</button>
+      </form>
+      <textarea row="6">{{ answer }}</textarea>
       <p>{{ answer }}</p>
     </section>
   </body>
