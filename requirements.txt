@@ -1,6 +1,6 @@
 Flask==2.2.2
 gunicorn
-langchain
+langchain==0.0.82
 openai
 PyPDF2
 pydantic
