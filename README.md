@@ -27,7 +27,7 @@ To use the application, follow these steps:
 
 ## Demo
 
-[Click here](https://replit.com/@Funbi/PDF-question-answering-app?s=app) to view a live demo of the application.
+[Click here](https://pdf-question-answering-app.funbi.repl.co/) to view a live demo of the application.
 
 ## Contributing
 
