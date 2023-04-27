@@ -3,8 +3,8 @@ from PyPDF2 import PdfReader #PdfFileReader
 from langchain import PromptTemplate
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import FAISS #ElasticVectorSearch, Pinecone, Weaviate, FAISS
-from langchain.chains.question_answering import load_qa_chain
+from langchain.vectorstores import FAISS
+from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 import os 
 
@@ -27,7 +27,7 @@ raw_text=""
 answer=""
 texts=[]
 api=""
-
+doc=""
 baseDirectory=os.getcwd()
 
 def convert2text(pdfFile):
@@ -62,10 +62,12 @@ def qAndA(text,api,query):
   this function will return an answer"""
   embeddings = OpenAIEmbeddings(openai_api_key=api)
   docsearch = FAISS.from_texts(text, embeddings)
-  chain = load_qa_chain(OpenAI(openai_api_key=api), chain_type="stuff")
+  llm=OpenAI(openai_api_key=api)
+  chain = LLMChain(llm=llm, prompt=prompt)
   docs = docsearch.similarity_search(query)
-  res=chain.run(input_documents=docs, question=query)
-  return res
+  docs_page_content = " ".join([d.page_content for d in docs])
+  res=chain.run(question=query, docs=docs_page_content)
+  return res,docs_page_content
   
 
 
@@ -77,9 +79,10 @@ def home():
   global answer
   global raw_text
   global api
+  global doc
   if request.method=="POST":
 
-  # Obtain data from the form
+  # Obtain data from the html form
     if ('apikey' in request.form) or ('file' in request.files):
       file = request.files['file']
       api = request.form['apikey']
@@ -95,10 +98,12 @@ def home():
   # Searches for relevant chunk of text and use it to answer the given query
     elif ('question' in request.form) and (bool(texts)==True):
       query= request.form['question']
-      answer= qAndA(texts,api,query) 
+      ans= qAndA(texts,api,query) 
+      answer = ans[0]
+      doc = ans[1]
     else:
       answer= "try changing your api"
-  return render_template("index.html",answer=answer)
+  return render_template("index.html",answer=answer, doc=doc)
 
 
 if __name__ == '__main__':
